@@ -1,12 +1,12 @@
-package com.coolPatternGroup.view.themes.vomit;
+package com.coolPatternGroup.oven;
 
 import com.coolPatternGroup.view.viewComponents.TextArea;
 
 import java.awt.*;
 
-public class VomitThemeTextArea extends TextArea {
+public class UnicornThemeTextArea extends TextArea {
 
-    public VomitThemeTextArea() {
+    public UnicornThemeTextArea() {
         this.setBackground(Color.magenta);
         this.setForeground(Color.cyan);
     }

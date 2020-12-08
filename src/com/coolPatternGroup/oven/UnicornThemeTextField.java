@@ -1,12 +1,12 @@
-package com.coolPatternGroup.view.themes.vomit;
+package com.coolPatternGroup.oven;
 
 import com.coolPatternGroup.view.viewComponents.TextField;
 
 import java.awt.*;
 
-public class VomitThemeTextField extends TextField {
+public class UnicornThemeTextField extends TextField {
 
-    public VomitThemeTextField() {
+    public UnicornThemeTextField() {
         this.setBackground(Color.blue);
         this.setForeground(Color.yellow);
     }

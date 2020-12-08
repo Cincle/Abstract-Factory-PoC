@@ -1,12 +1,12 @@
-package com.coolPatternGroup.view.themes.vomit;
+package com.coolPatternGroup.oven;
 
 import com.coolPatternGroup.view.viewComponents.Button;
 
 import java.awt.*;
 
-public class VomitThemeButton extends Button {
+public class UnicornThemeButton extends Button {
 
-    public VomitThemeButton() {
+    public UnicornThemeButton() {
         this.setBackground(Color.cyan);
         this.setForeground(Color.red);
     }

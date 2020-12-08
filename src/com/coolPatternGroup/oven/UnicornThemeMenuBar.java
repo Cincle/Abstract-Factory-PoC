@@ -1,11 +1,11 @@
-package com.coolPatternGroup.view.themes.vomit;
+package com.coolPatternGroup.oven;
 
 import com.coolPatternGroup.view.viewComponents.MenuBar;
 
 import java.awt.*;
 
-public class VomitThemeMenuBar extends MenuBar {
-    public VomitThemeMenuBar() {
+public class UnicornThemeMenuBar extends MenuBar {
+    public UnicornThemeMenuBar() {
         this.setBackgroundColor(Color.yellow);
         this.setForeground(Color.magenta);
         this.setBorderColor(Color.blue);

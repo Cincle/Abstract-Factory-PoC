@@ -13,11 +13,11 @@ import java.awt.*;
 import java.io.IOException;
 import java.util.Properties;
 
-public class UiBuilder {
-    private JFrame mainFrame;
+public class MainView {
+    private JFrame mainViewFrame;
     private String theme;
 
-    private UIFactoryFactory uiFactoryFactory;
+    private UIFactoryProvider uiFactoryProvider;
     private UIFactory uiFactory;
 
     private MenuBar menuBar;
@@ -28,7 +28,20 @@ public class UiBuilder {
     private Button sendTextButton;
     private TextArea chatBox;
 
-    public UiBuilder() {
+    public MainView() {
+        this.theme = initTheme();
+        initViewFrame();
+        initViewComponents();
+        configViewComponents();
+        configViewFrame();
+    }
+
+    /**
+     * Loads config.properties file into Properties object.
+     * Fetches theme from properties object.
+     * @return theme string set in config.properties file.
+     */
+    private String initTheme() {
         Properties properties = new Properties();
         try {
             properties.load(this.getClass().getClassLoader().getResourceAsStream("com/coolPatternGroup/config.properties"));
@@ -36,15 +49,30 @@ public class UiBuilder {
             e.printStackTrace();
         }
 
-        theme = properties.getProperty("theme");
+        return properties.getProperty("theme");
+    }
 
-        uiFactoryFactory = new UIFactoryFactory();
-        uiFactory = uiFactoryFactory.createUIFactory(theme);
+    /**
+     * Initializes the view's main JFrame.
+     */
 
-        mainFrame = new JFrame("Super cool chat program");
-        mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        mainFrame.setSize(800, 600);
+    private void initViewFrame() {
+        this.mainViewFrame = new JFrame("Super cool chat program");
+        this.mainViewFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.mainViewFrame.setSize(800, 600);
+    }
 
+    /**
+     * Constructs the view components of the main view dependent on the theme.
+     */
+    private void initViewComponents() {
+        //Initializes the UIFactory provider.
+        uiFactoryProvider = new UIFactoryProvider();
+
+        //Use the UIFactory provider to initialize a UIFactory which its concrete implementation depends on the theme.
+        uiFactory = uiFactoryProvider.createUIFactory(theme);
+
+        //Builds the view components which its concrete implementation depends on the UIFactory.
         menuBar = uiFactory.createMenuBar();
         prefsMenu = uiFactory.createMenu();
         settingsMenuItem = uiFactory.creteMenuitem();
@@ -52,7 +80,13 @@ public class UiBuilder {
         textEntryField = uiFactory.createTextField();
         sendTextButton = uiFactory.createButton();
         chatBox = uiFactory.createTextArea();
+    }
 
+    /**
+     * Configures the initialized view components.
+     */
+
+    private void configViewComponents() {
         prefsMenu.setText("Preferences");
         menuBar.add(prefsMenu);
 
@@ -70,11 +104,16 @@ public class UiBuilder {
         chatBox.setText("\n Cooldude: Hey what's up dude!\n\n" +
                 " Othercooldude: Hey dude! Man this chat sure is cool. \n\n " +
                 " Cooldude: It sure is dude. It sure is.");
+    }
 
-        mainFrame.getContentPane().add(BorderLayout.SOUTH, bottomPanel);
-        mainFrame.getContentPane().add(BorderLayout.NORTH, menuBar);
-        mainFrame.getContentPane().add(BorderLayout.CENTER, chatBox);
+    /**
+     * Configuration of the view's main JFrame.
+     */
+    private void configViewFrame() {
+        mainViewFrame.getContentPane().add(BorderLayout.SOUTH, bottomPanel);
+        mainViewFrame.getContentPane().add(BorderLayout.NORTH, menuBar);
+        mainViewFrame.getContentPane().add(BorderLayout.CENTER, chatBox);
 
-        mainFrame.setVisible(true);
+        mainViewFrame.setVisible(true);
     }
 }

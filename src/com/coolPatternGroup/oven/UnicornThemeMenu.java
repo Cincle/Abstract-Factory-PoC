@@ -1,12 +1,12 @@
-package com.coolPatternGroup.view.themes.vomit;
+package com.coolPatternGroup.oven;
 
 import com.coolPatternGroup.view.viewComponents.Menu;
 
 import java.awt.*;
 
-public class VomitThemeMenu extends Menu {
+public class UnicornThemeMenu extends Menu {
 
-    public VomitThemeMenu() {
+    public UnicornThemeMenu() {
         this.setPopupMenuBackgroundColor(Color.green);
         this.setPopupMenuForegroundColor(Color.yellow);
     }

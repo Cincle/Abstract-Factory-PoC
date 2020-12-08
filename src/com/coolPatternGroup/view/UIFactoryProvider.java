@@ -1,8 +1,15 @@
 package com.coolPatternGroup.view;
 
-public class UIFactoryFactory {
+import com.coolPatternGroup.oven.UnicornThemeUiFactory;
+
+public class UIFactoryProvider {
     private UIFactory uiFactoryToReturn;
 
+    /**
+     *
+     * @param theme The theme for which factories should be returned.
+     * @return UIFactory interface which's concrete implementation depends on the selected theme.
+     */
     public UIFactory createUIFactory(String theme) {
         switch (theme) {
             case "light":
@@ -10,9 +17,6 @@ public class UIFactoryFactory {
                 break;
             case "dark":
                 uiFactoryToReturn = new DarkThemeUiFactory();
-                break;
-            case "vomit":
-                uiFactoryToReturn = new VomitThemeUiFactory();
                 break;
             default:
                 uiFactoryToReturn = new LightThemeUiFactory();

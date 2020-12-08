@@ -1,11 +1,11 @@
-package com.coolPatternGroup.view.themes.vomit;
+package com.coolPatternGroup.oven;
 
 import com.coolPatternGroup.view.viewComponents.Panel;
 
 import java.awt.*;
 
-public class VomitThemePanel extends Panel {
-    public VomitThemePanel() {
+public class UnicornThemePanel extends Panel {
+    public UnicornThemePanel() {
         this.setBackground(Color.red);
     }
 }
