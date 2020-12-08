@@ -4,9 +4,9 @@ import com.coolPatternGroup.view.viewComponents.Button;
 
 import java.awt.*;
 
-public class UnicornThemeButton extends Button {
+public class UnicornThemeButtonBackup extends Button {
 
-    public UnicornThemeButton() {
+    public UnicornThemeButtonBackup() {
         this.setBackground(Color.cyan);
         this.setForeground(Color.red);
     }

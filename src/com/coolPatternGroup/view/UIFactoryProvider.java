@@ -1,7 +1,5 @@
 package com.coolPatternGroup.view;
 
-import com.coolPatternGroup.oven.UnicornThemeUiFactory;
-
 public class UIFactoryProvider {
     private UIFactory uiFactoryToReturn;
 
